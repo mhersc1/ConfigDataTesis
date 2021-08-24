@@ -1,10 +1,5 @@
-spring:
-  cloud:
-    config:
-      uri: http://${CONFIG_SERVER_URL}:8888
-
 #OAuth Authentication
 security:
   oauth2:
     resource:
-      user-info-uri: http://${CONFIG_SERVER_URL}:8013/user
+      user-info-uri: http://${AUTH_SERVER_URL}:8013/user
