@@ -1,0 +1,35 @@
+spring:
+    application:
+        name: apigateway
+zuul:
+    prefix: /aplicativos
+    routes:
+        autenticacion:
+            path: /autenticacion/**
+        periodo-academico-service:
+            path: /periodo-academico/**
+    sensitive-headers:
+    add-proxy-headers: true
+
+# Increase the Hystrix timeout to 60s (globally)
+hystrix:
+    command:
+        default: 
+            execution: 
+                isolation:
+                    thread: 
+                        timeoutInMilliseconds: 60000
+                timeout:
+                    enabled: false
+    shareSecurityContext: true
+
+feign: 
+    hystrix:
+        enabled: true
+
+#Ribbon Configuration
+ribbon:
+  eureka:
+    enable: true
+  ConnectTimeout: 10000
+  ReadTimeout: 10000
