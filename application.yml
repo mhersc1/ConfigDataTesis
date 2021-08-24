@@ -1,3 +1,8 @@
+#Eureka Server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_SERVER_URL}:8761/eureka/
 #OAuth Authentication
 security:
   oauth2:
